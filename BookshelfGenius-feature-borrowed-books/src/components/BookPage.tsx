@@ -208,7 +208,19 @@ const BookPage = () => {
                 Genre: {book.genre}
               </Text>
               <Text marginBottom={8} color={textColor}>
-                {book.getExplanation()}
+                Books are timeless vessels of knowledge, imagination, and
+                enlightenment. As quintessential artifacts of human
+                civilization, they transcend epochs, offering insights into the
+                past, present, and future. Within their pages lie the collective
+                wisdom of humanity, curated by authors who dare to explore the
+                depths of human experience. From ancient scrolls to modern
+                bestsellers, books encapsulate diverse perspectives, sparking
+                curiosity, empathy, and understanding. They serve as beacons of
+                education, entertainment, and inspiration, fostering
+                intellectual growth and cultural enrichment. In a world
+                inundated with fleeting distractions, books stand as steadfast
+                companions, inviting readers to embark on journeys of discovery
+                and introspection, enriching lives one page at a time.
               </Text>
               <Flex justifyContent="space-between" alignItems="center">
                 {bookStatus === BookStatus.AVAILABLE && (
