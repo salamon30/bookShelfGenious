@@ -18,7 +18,7 @@ import { useParams } from "react-router-dom";
 import { Book, getBooks, Comment } from "../hooks/useBooks";
 import BookPageContainer from "./BookPageContainer";
 import fallback from "../images/fallback_image.jpg";
-import FavoriteButton from "./FavoriteButton";
+
 import Cookies from "js-cookie";
 
 const BookPage = () => {
@@ -28,7 +28,7 @@ const BookPage = () => {
   const textColor = colorMode === "dark" ? "#F8F4E1" : "#543310";
   const cardBgColor = colorMode === "dark" ? "#74512D" : "#AF8F6F";
 
-  const [isFavorite, setIsFavorite] = useState(false);
+  
   const [comment, setComment] = useState("");
   const [book, setBook] = useState<Book>();
 
@@ -81,9 +81,7 @@ const BookPage = () => {
       }
   }, [book]);
 
-  const handleFavoriteClick = () => {
-    setIsFavorite(!isFavorite);
-  };
+ 
 
   const handleAddComment = () => {
       if (book) {
@@ -251,10 +249,7 @@ const BookPage = () => {
                     </Text>
                 )}
 
-                <FavoriteButton
-                  isFavorite={isFavorite}
-                  onClick={handleFavoriteClick}
-                />
+               
               </Flex>
             </CardBody>
           </Flex>
