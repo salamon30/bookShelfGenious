@@ -1,4 +1,5 @@
 import { Genre } from "./useGenres";
+import bookExplanations from "./BookExplanations";
 
 export interface Comment {
   username: string;
@@ -14,15 +15,17 @@ export class Book {
     public genre: string;
     public available: boolean;
     public comments: Comment[];
+    public explanation: string;
     public borrowedBy: string;
 
-    constructor(id: number, title: string, author: string, pageCount: number, image: string, genre: string, available: boolean, borrowedBy: string) {
+    constructor(id: number, title: string, author: string, pageCount: number, image: string, genre: string, explanation: string, available: boolean, borrowedBy: string) {
       this.id = id;
       this.title = title;
       this.author = author;
       this.pageCount = pageCount;
       this.image = image;
       this.genre = genre;
+      this.explanation = explanation;
       this.available = available;
       this.comments = [];
       this.borrowedBy = borrowedBy;
@@ -71,7 +74,13 @@ export class Book {
 
       getGenre(): string {
         return this.genre;
-    }
+      }
+      setExplanation(explanation: string): void {
+        this.explanation = explanation;
+      }
+      getExplanation(): string {
+        return this.explanation;
+      }
 
     setAvailable(available: boolean): void {
         this.available = available;
@@ -111,7 +120,7 @@ export const getBooks = async (): Promise<Book[]> => {
             const bookList: Book[] = [];
 
             responseBooks.forEach(book => {
-                let bookToAdd = new Book(book.id, book.title, book.author, book.pageCount, book.image, book.genre, book.available, book.borrowedBy);
+                let bookToAdd = new Book(book.id, book.title, book.author, book.pageCount, book.image, book.genre, book.explanation, book.available, book.borrowedBy);
                 bookList.push(bookToAdd);
             })
             return bookList;
